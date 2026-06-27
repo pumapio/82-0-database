@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>82-0 Player Database</title>
+<style>
+body {
+    background:#0d1117;
+    color:white;
+    font-family: Arial, sans-serif;
+    text-align:center;
+}
+h1 { margin-top:20px; }
+table {
+    margin:auto;
+    margin-top:20px;
+    border-collapse: collapse;
+    width: 90%;
+}
+td, th {
+    border: 1px solid #333;
+    padding: 8px;
+}
+input {
+    margin-top:20px;
+    padding:10px;
+    width:60%;
+}
+</style>
+</head>
+<body>
 
+<h1>82-0 Player Database</h1>
+
+<input id="search" placeholder="Search players..." />
+
+<div id="output">Loading data...</div>
+
+<script>
+const url = "https://spreadsheets.google.com/feeds/cells/1ok587K4KPEON7Rs5Nx7-JPidAVfkEGPv_5-GFEggwbM/1/public/full?alt=json";
+
+let players = [];
+
+fetch(url)
+.then(res => res.json())
+.then(data => {
+    const entries = data.feed.entry;
+
+    let row = {};
+    let lastRow = 1;
+
+    entries.forEach(cell => {
+        let r = parseInt(cell.gs$cell.row);
+        let c = parseInt(cell.gs$cell.col);
+        let value = cell.gs$cell.inputValue;
+
+        if (!row[r]) row[r] = [];
+        row[r][c] = value;
+    });
+
+    players = Object.values(row).slice(1);
+
+    render(players);
+});
+
+function render(data){
+    let html = "<table><tr><th>Player</th><th>Team</th><th>Decade</th><th>PPG</th></tr>";
+
+    data.slice(0,200).forEach(p=>{
+        if(!p) return;
+        html += `<tr>
+            <td>${p[1] || ""}</td>
+            <td>${p[3] || ""}</td>
+            <td>${p[4] || ""}</td>
+            <td>${p[5] || ""}</td>
+        </tr>`;
+    });
+
+    html += "</table>";
+    document.getElementById("output").innerHTML = html;
+}
+
+document.getElementById("search").addEventListener("input", e=>{
+    let q = e.target.value.toLowerCase();
+    let filtered = players.filter(p =>
+        (p?.[1] || "").toLowerCase().includes(q)
+    );
+    render(filtered);
+});
+</script>
+
+</body>
+</html>
