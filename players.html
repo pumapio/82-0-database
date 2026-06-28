@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>82-0 Database | Player Database</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">82-0 Database</a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="players.html">Database</a></li>
+            <li><a href="tracker.html">Tracker</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<section class="database">
+
+    <h1>Player Database</h1>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search player...">
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters">
+
+        <select id="teamFilter">
+            <option value="">All Teams</option>
+        </select>
+
+        <select id="decadeFilter">
+            <option value="">All Decades</option>
+        </select>
+
+        <select id="positionFilter">
+            <option value="">All Positions</option>
+        </select>
+
+    </div>
+
+    <!-- VIEW TOGGLE -->
+    <div class="view-toggle">
+        <button id="cardViewBtn">Card View</button>
+        <button id="tableViewBtn">Table View</button>
+    </div>
+
+    <!-- CARD VIEW -->
+    <div id="cardView" class="card-container"></div>
+
+    <!-- TABLE VIEW -->
+    <div id="tableView" class="table-container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Team</th>
+                    <th>Decade</th>
+                    <th>PPG</th>
+                    <th>RPG</th>
+                    <th>APG</th>
+                    <th>SPG</th>
+                    <th>BPG</th>
+                    <th>Total</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    <p>
+        Unofficial fan-made database. Not affiliated with or endorsed by
+        Vaulty Studios Inc., or sponsored by the National Basketball Association (NBA).
+    </p>
+    <p>Version 0.1.0</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
