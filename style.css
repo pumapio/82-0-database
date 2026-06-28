@@ -124,8 +124,8 @@ main {
 }
 
 footer {
-    margin-top: 60px;
-    padding-bottom: 40px;
+    margin-top: 200px;
+    padding-bottom: 60px;
 }
 .nav-links li {
     display: inline;
@@ -150,4 +150,25 @@ main {
     text-align: center;
     margin-top: 120px;
     gap: 18px;
+}
+input, select {
+    font-size: 16px;
+}
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+th, td {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 10px;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
 }

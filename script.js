@@ -22,7 +22,7 @@ function loadData() {
             name: "Kevin Durant",
             team: "PHX",
             decade: "2020s",
-            position: "SF",
+            position: "PF / SF / SG",
             ppg: 27.4,
             rpg: 6.8,
             apg: 4.5,
@@ -35,7 +35,7 @@ function loadData() {
             name: "Michael Jordan",
             team: "CHI",
             decade: "1990s",
-            position: "SG",
+            position: "SG / SF",
             ppg: 30.1,
             rpg: 6.2,
             apg: 5.3,
@@ -85,15 +85,19 @@ function populateFilters() {
 // ---------------------------
 function getFilteredPlayers() {
     return players.filter(p => {
+        const query = searchInput.value.toLowerCase();
+
         return (
-            (searchInput.value === "" || p.name.toLowerCase().includes(searchInput.value.toLowerCase())) &&
+            (query === "" ||
+                p.name.toLowerCase().includes(query) ||
+                p.team.toLowerCase().includes(query) ||
+                p.decade.toLowerCase().includes(query)
+            ) &&
             (teamFilter.value === "" || p.team === teamFilter.value) &&
-            (decadeFilter.value === "" || p.decade === decadeFilter.value) &&
-            (positionFilter.value === "" || p.position === positionFilter.value)
+            (decadeFilter.value === "" || p.decade === decadeFilter.value)
         );
     });
 }
-
 // ---------------------------
 // RENDER CARD VIEW
 // ---------------------------
