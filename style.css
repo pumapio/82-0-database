@@ -25,7 +25,13 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
     padding: 20px 40px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* CENTER CONTAINER LIMIT */
@@ -40,7 +46,7 @@ main {
 
 /* HERO SECTION */
 .hero {
-    margin-top: 60px;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,4 +110,28 @@ main {
     padding: 20px;
     border-radius: 12px;
     width: 140px;
+}.stats 
+.stats {
+    margin-bottom: 80px;
+}
+
+footer {
+    margin-top: 60px;
+    padding-bottom: 40px;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    color: #3B82F6;
 }
