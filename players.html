@@ -33,58 +33,77 @@
 
 </header>
 
-<main>
+<main class="database-page">
 
-<section class="database">
+    <section class="database-header">
 
-    <h1>Player Database</h1>
+        <h1>82-0 Player Database</h1>
 
-    <!-- SEARCH -->
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search player...">
-    </div>
+        <p class="player-count">
+            Showing <span id="playerCount">10,626</span> Players
+        </p>
 
-    <!-- FILTERS -->
-    <div class="filters">
+        <div class="search-container">
 
-        <select id="teamFilter">
-            <option value="">All Teams</option>
-        </select>
+            <input
+                id="searchInput"
+                type="search"
+                placeholder="Search player, team, decade..."
+            >
 
-        <select id="decadeFilter">
-            <option value="">All Decades</option>
-        </select>
+        </div>
 
-        <select id="positionFilter">
-            <option value="">All Positions</option>
-        </select>
+        <div class="filter-row">
 
-    
+            <button class="filter-chip" id="teamButton">
+                All Teams ▼
+            </button>
 
-    <!-- TABLE VIEW -->
-    <div id="tableView" class="table-container">
+            <button class="filter-chip" id="decadeButton">
+                All Decades ▼
+            </button>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Player</th>
-                    <th>Team</th>
-                    <th>Decade</th>
-                    <th>PPG</th>
-                    <th>RPG</th>
-                    <th>APG</th>
-                    <th>SPG</th>
-                    <th>BPG</th>
-                    <th>Total</th>
-                    <th>Grade</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-        </table>
+        </div>
 
-    </div>
+        <div class="position-row">
 
-</section>
+            <button class="position-chip active">All</button>
+            <button class="position-chip">PG</button>
+            <button class="position-chip">SG</button>
+            <button class="position-chip">SF</button>
+            <button class="position-chip">PF</button>
+            <button class="position-chip">C</button>
+
+        </div>
+
+        <div class="sort-row">
+
+            <label for="sortSelect">Sort By</label>
+
+            <select id="sortSelect">
+
+                <option>A–Z</option>
+                <option>Z–A</option>
+
+                <option>Total</option>
+
+                <option>Grade</option>
+
+                <option>PPG</option>
+
+                <option>RPG</option>
+
+                <option>APG</option>
+
+                <option>SPG</option>
+
+                <option>BPG</option>
+
+            </select>
+
+        </div>
+
+    </section>
 
 </main>
 
